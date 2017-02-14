@@ -1,0 +1,29 @@
+{
+  "name": "music.d.js",
+  "version": "0.0.2",
+  "description": "A music lib for d.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "node text.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/funnbot/music.d.js.git"
+  },
+  "keywords": [
+    "d.js",
+    "music",
+    "bot"
+  ],
+  "author": "Funnbot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dillman33/music.d.js/issues"
+  },
+  "homepage": "https://github.com/dillman33/music.d.js#readme",
+  "dependencies": {
+    "request": "^2.79.0",
+    "soundcloud-resolve": "^1.0.2",
+    "youtube-info": "^1.1.1"
+  }
+}
