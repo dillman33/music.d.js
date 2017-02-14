@@ -18,9 +18,9 @@
   "author": "Funnbot",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dillman33/music.d.js/issues"
+    "url": "https://github.com/funnbot/music.d.js/issues"
   },
-  "homepage": "https://github.com/dillman33/music.d.js#readme",
+  "homepage": "https://github.com/funnbot/music.d.js#readme",
   "dependencies": {
     "request": "^2.79.0",
     "soundcloud-resolve": "^1.0.2",
