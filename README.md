@@ -1,5 +1,7 @@
 #music.d.js
 A music library for discord.js
+Now we can flood the discord community with amazing music bots!
+Its just that easy!
 
 ###Example
 ```js
@@ -25,7 +27,7 @@ Value|Default|Description
 :---|:---|:---
 scKey|false|The SoundCloud API Key, if no key is provided, soundcloud functionality is disabled
 ytKey|false|The YouTube API Key, if no key is provided, youtube *playlist* and *search* is disabled
-autoPlay|true|When enabled, will start playing music on queue without having to run ```play()```
+autoPlay|true|When enabled, will start playing music on queue without having to run `play()`
 
 
 ##Player
@@ -44,18 +46,20 @@ Player.setup(options)
 
 ####Player\#addConnection
 Add a voiceConnection 
->returns GuildPlayer Class
+>returns GuildPlayer Class of id, else returns error
 ```js
 voiceChannel.join().then(connection => {
-    Player.addConnection(connection, message)
+    let GuildPlayer = Player.addConnection(connection, message)
 })
 //connection: The VoiceChannel connection object
 //message: The standard d.js Message Object
 ```
 
 ####Player#get
-Get a GuildPlayer by ID
->returns GuildPlayer Class
+Get a GuildPlayer by ID if it exists
+>returns GuildPlayer Class of id, else returns false
 ```js
-Player.get('12345678899')
+let GuildPlayer = Player.get('12345678899')
 ```
+
+##GuildPlayer
