@@ -15,7 +15,7 @@ let player = Player(options)
 
 voiceChannel.join().then(connection => {
   
-   player.addConnection(connection, guildID)
+   player.addConnection(connection, message)
   
 }
 ```
@@ -29,6 +29,7 @@ autoPlay|true|When enabled, will start playing music on queue without having to 
 
 
 ##Player
+####Player\#setup
 setup the music player
 >returns Promise\<Options\>
 ```js
@@ -39,4 +40,15 @@ Player.setup(options)
 .catch(err => {
     //Invalid api keys or options were simply incorrect
 })
+```
+####player\#addConnection
+Add a voiceConnection 
+>returns GuildPlayer Class
+```js
+voiceChannel.join().then(connection => {
+    Player.addConnection(connection, message)
+})
+
+//connection: The VoiceChannel connection object
+//message: The standard d.js Message Object
 ```
