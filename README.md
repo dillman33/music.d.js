@@ -46,7 +46,7 @@ Player.setup(options)
 
 ####Player\#addConnection
 Add a voiceConnection 
->returns GuildPlayer Class of id, else returns error
+>returns GuildPlayer Class of id, else returns false on error
 ```js
 voiceChannel.join().then(connection => {
     let GuildPlayer = Player.addConnection(connection, message)
