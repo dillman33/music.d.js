@@ -19,3 +19,8 @@ voiceChannel.join().then(connection => {
   
 }
 ```
+
+####options
+Value|Default|Description
+:---|:---|:---
+scKey|false|The SoundCloud API Key, if no key is provided, soundcloud functionality is disabled
