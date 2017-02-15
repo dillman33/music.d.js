@@ -56,12 +56,14 @@ exports.get = (id) => {
 
 }
 
-exports.addConnection = (connection, guildID) => {
-    if (!connection || !guildID) throw new Error("Missing argument in addConnection")
+exports.addConnection = (connection, message) => {
+    if (message.channel.type === "dm") throw new Error("Music cannot be played in direct messages")
+
+    if (!connection || !message) throw new Error("Missing argument in addConnection")
 
     if (this.players[guildID]) throw new Error("Connection for the id: " + guildID + " already exists")
 
-    players[guildID] = new Guild(options, connection, guildID)
+    players[message.guild.id] = new Guild(options, connection, message)
 }
 
 /* Create a voice channel connection
@@ -77,20 +79,7 @@ exports.connect = (guildID, voiceChannel, textChannel, connection) => {
         playlist: []
     };
 }
-/*
-Once you have run connect() you can add songs to the Queue/playlist
-You must use addPlaylist() for adding youtube/soundcloud playlists;
 
-Returns Song Object
-{
-    title: Song Title,
-    owner: Song Owner,
-    stream: Stream URL (important for soundcloud links),    
-    url: Song url,
-    duration: Duration in MS,
-    regionsAllowed: Regions the link is allowed (returns "all" if all)
-};
-*/
 exports.addSong = (guildID, url, user) => {
     return new Promise((res, rej) => {
         if (!con[guildID]) return rej('You must connect to a channel first.');
@@ -133,17 +122,7 @@ exports.addSong = (guildID, url, user) => {
 }
 
 function youtubeInfo(url) {
-    return new Promise((res, rej) => {
-        let type = linkType(url);
-        if (type === "yt-playlist" || type === "sc-playlist" || type === "nal" || type === "sc") return rej("InvalidLink: not youtube link")
-        let id = _url.parse(url, true);
-        if (type === "yt") id = id.query.v;
-        if (type === "yt-be") id = id.path.slice(1);
-        youtube_info(id, (err, data) => {
-            if (err) return rej('Invalid Youtube ID');
-            return res(data);
-        });
-    })
+    
 }
 
 function soundcloudInfo(url) {
