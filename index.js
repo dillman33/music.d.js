@@ -2,9 +2,36 @@ const _url = require('url');
 const youtube_info = require('youtube-info');
 const resolve = require('soundcloud-resolve');
 const request = require('request');
+const Guild = require('./lib/Guild')
 
 let opt = false;
-let con = {};
+let players = {}
+
+module.exports = (options) => {
+    if (typeof options !== "object") throw new Error("Options must be an object")
+
+    this.options = {
+        scKey: options.scKey ? options.scKey : false,
+
+        ytKey: options.ytKey ? options.ytKey : false,
+
+        autoPlay: options.autoPlay ? options.autoPlay : true
+    }
+
+}
+
+
+exports.get = (id) => {
+
+}
+
+exports.addConnection = (connection, guildID) => {
+    if (!connection || !guildID) throw new Error("Missing argument in addConnection")
+
+    if (this.players[guildID]) throw new Error("Connection for the id: " + guildID + " already exists")
+
+    players[guildID] = new Guild(options, connection, guildID)
+}
 
 exports.set = (a) => {
     if (a.scKey) opt.scKey = a.scKey;
@@ -78,7 +105,7 @@ exports.addSong = (guildID, url, user) => {
                     owner: data.owner,
                     stream: data.url,
                     url: data.url,
-                    duration: data.duration*1000,
+                    duration: data.duration * 1000,
                     regionsAllowed: data.regionsAllowed
                 };
                 con[guildID].playlist.push(song);
