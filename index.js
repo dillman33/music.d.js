@@ -3,25 +3,56 @@ const youtube_info = require('youtube-info');
 const resolve = require('soundcloud-resolve');
 const request = require('request');
 const Guild = require('./lib/Guild')
+const ut = require('./lib/util.js')
 
-let opt = false;
+let options = false;
 let players = {}
 
-module.exports = (options) => {
-    if (typeof options !== "object") throw new Error("Options must be an object")
+exports.setup = (opt = {}) => {
+    
+    return new Promise((resolve, reject) => {
 
-    this.options = {
-        scKey: options.scKey ? options.scKey : false,
+        if (opt === false) return reject("Options have already been set")
 
-        ytKey: options.ytKey ? options.ytKey : false,
+        if (typeof opt !== "object") return reject("Options must be an object")
 
-        autoPlay: options.autoPlay ? options.autoPlay : true
-    }
+        options = {}
+
+        options.scKey = opt.scKey ? opt.scKey : false
+
+        if (options.scKey) {
+            
+            ut.scKey(options.scKey, (err) => {
+                
+                if (err) return reject("Invalid SoundCloud Api Key")
+
+            })
+
+        }
+
+        options.ytKey = opt.ytKey ? opt.ytKey : false
+
+        if (options.ytKey) {
+
+            ut.ytKey(options.ytKey, (err) => {
+                
+                if (err) return reject("Invalid YouTube Api Key")
+
+            })
+        }
+
+        options.autoPlay = opt.autoPlay ? opt.autoPlay : true
+        
+        return resolve(options)
+    })
 
 }
 
 
 exports.get = (id) => {
+
+    if (!players[id]) return false
+    return players[id]
 
 }
 
@@ -31,39 +62,6 @@ exports.addConnection = (connection, guildID) => {
     if (this.players[guildID]) throw new Error("Connection for the id: " + guildID + " already exists")
 
     players[guildID] = new Guild(options, connection, guildID)
-}
-
-exports.set = (a) => {
-    if (a.scKey) opt.scKey = a.scKey;
-    else opt.scKey = false;
-    if (opt.scKey) {
-        resolve(opt.scKey, "https://soundcloud.com/lubxtpf/whateverhappened", (err, data) => {
-            if (err) opt.scKey = false;
-        })
-    }
-    if (a.ytKey) opt.ytKey = a.ytKey;
-    else a.ytKey = false;
-    return opt;
-}
-
-/* Returns nal if not a link
-yt if youtube link
-yt-playlist if youtube playlist
-sc if soundcloud link
-sc-playlist if soundcloud playlist
-*/
-exports.linkType = (url) => {
-    url = _url.parse(url, true);
-    if (/(?:www\.)?(?:youtu\.be|youtube\.com)/i.test(url.hostname)) {
-        if (url.query.list) return 'yt-playlist';
-        if (!url.query.v) return 'yt-be';
-        return 'yt'
-    }
-    if (/(?:www\.)?(?:soundcloud\.com)/i.test(url.hostname)) {
-        if (/\/sets\//i.test(url.path)) return 'sc-playlist';
-        return 'sc';
-    }
-    return 'nal';
 }
 
 /* Create a voice channel connection
