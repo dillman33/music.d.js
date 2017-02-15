@@ -11,7 +11,7 @@ let options = {
     autoPlay: true
 }
 
-let player = new Player(options)
+let player = Player(options)
 
 voiceChannel.join().then(connection => {
   
@@ -26,3 +26,10 @@ Value|Default|Description
 scKey|false|The SoundCloud API Key, if no key is provided, soundcloud functionality is disabled
 ytKey|false|The YouTube API Key, if no key is provided, youtube *playlist* and *search* is disabled
 autoPlay|true|When enabled, will start playing music without running ```play()```
+
+
+##Player
+```js
+const player = new Player(options)
+```
+Create new Player only *once*, Then export player to the rest of your code.
