@@ -41,14 +41,21 @@ Player.setup(options)
     //Invalid api keys or options were simply incorrect
 })
 ```
-####player\#addConnection
+
+####Player\#addConnection
 Add a voiceConnection 
 >returns GuildPlayer Class
 ```js
 voiceChannel.join().then(connection => {
     Player.addConnection(connection, message)
 })
-
 //connection: The VoiceChannel connection object
 //message: The standard d.js Message Object
+```
+
+####Player#get
+Get a GuildPlayer by ID
+>returns GuildPlayer Class
+```js
+Player.get('12345678899')
 ```
