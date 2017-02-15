@@ -60,4 +60,6 @@ exports.addConnection = (connection, message) => {
     if (this.players[guildID]) throw new Error("Connection for the id: " + guildID + " already exists")
 
     players[message.guild.id] = new Guild(options, connection, message)
+
+    return players[message.guild.id]
 }
