@@ -1,6 +1,6 @@
 {
   "name": "music.d.js",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "A music lib for d.js",
   "main": "index.js",
   "scripts": {
