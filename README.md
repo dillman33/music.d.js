@@ -3,6 +3,8 @@ A music library for discord.js
 Now we can flood the discord community with amazing music bots!
 Its just that easy!
 
+#Do Not Download! Still In Development
+
 ###Example
 ```js
 const Player = require('music.d.js')
