@@ -29,6 +29,12 @@ scKey|false|The SoundCloud API Key, if no key is provided, soundcloud functional
 ytKey|false|The YouTube API Key, if no key is provided, youtube *playlist* and *search* is disabled
 autoPlay|true|When enabled, will start playing music on queue without having to run `play()`
 
+Value|Default|Description
+:---|:---|:---
+scKey|false|The SoundCloud API Key, if no key is provided, soundcloud functionality is disabled
+ytKey|false|The YouTube API Key, if no key is provided, youtube *playlist* and *search* is disabled
+autoPlay|true|When enabled, will start playing music on queue without having to run `play()`
+
 ####Song Object
 returned from `queue(song url)` and nextSong event
 |Value|Description|
