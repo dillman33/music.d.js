@@ -31,7 +31,7 @@ autoPlay|true|When enabled, will start playing music on queue without having to 
 
 ####Song Object
 returned from `queue(song url)` and nextSong event
-Value|Description|
+Value|Description|ok
 :----|:----|
 title|The song title|
 owner|The song uploader|
