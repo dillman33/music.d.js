@@ -3,6 +3,8 @@ A music library for discord.js
 Now we can flood the discord community with amazing music bots!
 Its just that easy!
 
+[![NPM](https://nodei.co/npm/music.d.js.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/music.d.js/)
+
 #Do Not Download! Still In Development
 
 ###Example
