@@ -29,6 +29,26 @@ scKey|false|The SoundCloud API Key, if no key is provided, soundcloud functional
 ytKey|false|The YouTube API Key, if no key is provided, youtube *playlist* and *search* is disabled
 autoPlay|true|When enabled, will start playing music on queue without having to run `play()`
 
+####Song Object
+returned from `queue(song url)` and nextSong event
+Value|Description
+:---|:---
+title|The song title
+owner|The song uploader
+stream|Streaming url *ignore*
+url|The songs url
+duration|The song duration in MS
+regionsAllowed|Array of regions allowed, `true` if no restrictions
+requester|The provided requester info in `queue()` or false if not provided
+
+####Playlist Object
+return from `queue(playlist url)`
+Value|Description
+:---|:---
+title:The playlist title
+owner|The playlist uploader
+tracks|An array of Song Objects
+
 
 ##Player
 ####.setup({options})
@@ -68,6 +88,7 @@ After Player#get you can use the following functions with the returned object:
 ####.queue(url [, requester)
 Queue a song, playlist, or search query
 Optional requester argument, Unecessary for normal function, But if given, will be returned in the nextSong event
+If autoplay is `true` then this will trigger music to start playing if it isnt already
 >returns Promise\<Song Object/Arra\>
 ```js
 GuildPlayer.queue('http://youtube.com/yoyoma2', requester).then(song => {
