@@ -31,20 +31,20 @@ autoPlay|true|When enabled, will start playing music on queue without having to 
 
 ####Song Object
 returned from `queue(song url)` and nextSong event
-Value|Description|ok
-:----|:----|
-title|The song title|
-owner|The song uploader|
-stream|Streaming url *ignore*|
-url|The songs url|
-duration|The song duration in MS|
-regionsAllowed|Array of regions allowed, `true` if no restrictions|
-requester|The provided requester info in `queue()` or false if not provided|
+|Value|Description
+|:----|:----
+title|The song title
+owner|The song uploader
+stream|Streaming url *ignore*
+url|The songs url
+duration|The song duration in MS
+regionsAllowed|Array of regions allowed, `true` if no restrictions
+requester|The provided requester info in `queue()` or false if not provided
 
 ####Playlist Object
 return from `queue(playlist url)`
-Value|Description
-:----|:----|
+|Value|Description
+|:----|:----
 title:The playlist title
 owner|The playlist uploader
 tracks|An array of Song Objects
