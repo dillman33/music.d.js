@@ -31,7 +31,7 @@ autoPlay|true|When enabled, will start playing music on queue without having to 
 
 
 ##Player
-####Player\#setup
+####.setup({options})
 setup the music player
 >returns Promise\<Options\>
 ```js
@@ -44,7 +44,7 @@ Player.setup(options)
 })
 ```
 
-####Player\#addConnection
+####.addConnection(connection, message)
 Add a voiceConnection 
 >returns GuildPlayer Class of id, else returns false on error
 ```js
@@ -55,11 +55,22 @@ voiceChannel.join().then(connection => {
 //message: The standard d.js Message Object
 ```
 
-####Player#get
+####.get(id)
 Get a GuildPlayer by ID if it exists
 >returns GuildPlayer Class of id, else returns false
 ```js
 let GuildPlayer = Player.get('12345678899')
 ```
 
+After Player#get you can use the following functions with the returned object:
+
 ##GuildPlayer
+####.queue(url [, requester)
+Queue a song, playlist, or search query
+Optional requester argument, Unecessary for normal function, But if given, will be returned in the nextSong event
+>returns Promise\<Song Object/Arra\>
+```js
+GuildPlayer.queue('http://youtube.com/yoyoma2', requester).then(song => {
+    //Song Object
+}.catch(err => //something went wrong)
+```
