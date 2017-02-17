@@ -31,6 +31,7 @@ autoPlay|true|When enabled, will start playing music on queue without having to 
 
 ####Song Object
 returned from `queue(song url)` and nextSong event
+
 Value|Description
 :---|:---
 title|The song title
@@ -43,11 +44,12 @@ requester|The provided requester info in `queue()` or false if not provided
 
 ####Playlist Object
 return from `queue(playlist url)`
-Value|Description|What
-:----|:----|:---
-title|The playlist title|why
-owner|The playlist uploader|do
-tracks|An array of Song Objects|i
+
+Value|Description
+:----|:----
+title|The playlist title
+owner|The playlist uploader
+tracks|An array of Song Objects
 
 
 ##Player
