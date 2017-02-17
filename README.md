@@ -44,7 +44,7 @@ requester|The provided requester info in `queue()` or false if not provided
 ####Playlist Object
 return from `queue(playlist url)`
 Value|Description|What
-:----|:----|---
+:----|:----|:---
 title|The playlist title|why
 owner|The playlist uploader|do
 tracks|An array of Song Objects|i
