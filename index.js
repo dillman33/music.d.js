@@ -1,5 +1,7 @@
 const Guild = require('./lib/Guild')
 const ut = require('./lib/util.js')
+const EventEmitter = require('events').EventEmitter
+const event = new EventEmitter()
 
 let options = false;
 let players = {}
@@ -62,4 +64,8 @@ exports.addConnection = (connection, message) => {
     players[message.guild.id] = new Guild(options, connection, message)
 
     return players[message.guild.id]
+}
+
+exports._nextSong = (song) => {
+    event.emit('nextSong', song)
 }
