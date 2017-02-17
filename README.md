@@ -1,11 +1,11 @@
 #music.d.js
-A music library for discord.js
-Now we can flood the discord community with amazing music bots!
-Its just that easy!
+A music library for discord.js.
+
+Now it's even easier for the Discord community to make amazing music bots!
 
 [![NPM](https://nodei.co/npm/music.d.js.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/music.d.js/)
 
-#Do Not Download! Still In Development
+#_**⚠️️ DO NOT DOWNLOAD; STILL IN DEVELOPMENT ⚠️️**_
 
 ###Example
 ```js
@@ -29,8 +29,8 @@ voiceChannel.join().then(connection => {
 ####options
 Value|Default|Description
 :---|:---|:---
-scKey|false|The SoundCloud API Key, if no key is provided, soundcloud functionality is disabled
-ytKey|false|The YouTube API Key, if no key is provided, youtube *playlist* and *search* is disabled
+scKey|false|The SoundCloud API Key (if no key is provided, SoundCloud functionality is disabled)
+ytKey|false|The YouTube API Key (if no key is provided, YouTube *playlist* and *search* is disabled)
 autoPlay|true|When enabled, will start playing music on queue without having to run `play()`
 
 ####Song Object
@@ -42,7 +42,7 @@ title|The song title
 owner|The song uploader
 stream|Streaming url *ignore*
 url|The songs url
-duration|The song duration in MS
+duration|The song duration in milliseconds
 regionsAllowed|Array of regions allowed, `true` if no restrictions
 requester|The provided requester info in `queue()` or false if not provided
 
@@ -58,7 +58,7 @@ tracks|An array of Song Objects
 
 ##Player
 ####.setup({options})
-setup the music player
+Set up the music player.
 >returns Promise\<Options\>
 ```js
 Player.setup(options)
@@ -71,7 +71,7 @@ Player.setup(options)
 ```
 
 ####.addConnection(connection, message)
-Add a voiceConnection 
+Add a voiceConnection. 
 >returns GuildPlayer Class of id, else returns false on error
 ```js
 voiceChannel.join().then(connection => {
@@ -82,20 +82,20 @@ voiceChannel.join().then(connection => {
 ```
 
 ####.get(id)
-Get a GuildPlayer by ID if it exists
+Get a GuildPlayer by ID, if it exists.
 >returns GuildPlayer Class of id, else returns false
 ```js
 let GuildPlayer = Player.get('12345678899')
 ```
 
-After Player#get you can use the following functions with the returned object:
+After calling Player.get, you can use the following functions with the returned object:
 
 ##GuildPlayer
 ####.queue(url [, requester)
-Queue a song, playlist, or search query
-Optional requester argument, Unecessary for normal function, But if given, will be returned in the nextSong event
-If autoplay is `true` then this will trigger music to start playing if it isnt already
->returns Promise\<Song Object/Arra\>
+Queue a song, playlist, or search query.
+Requester argument optional. If given, however, it will be returned in the nextSong event.
+If autoplay is `true` then this will trigger music to start playing if it isn't already.
+>returns Promise\<Song Object/Array\>
 ```js
 GuildPlayer.queue('http://youtube.com/yoyoma2', requester).then(song => {
     //Song Object
